@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Pages;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +19,9 @@ class PagesController extends Controller
      */
     public function index()
     {
-        //
+        $pages = Pages::all();
+        return view('pages.index', compact('pages'));
+
     }
 
     /**
