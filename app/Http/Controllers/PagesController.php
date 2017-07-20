@@ -19,7 +19,7 @@ class PagesController extends Controller
      */
     public function index()
     {
-        $pages = Pages::all();
+        $pages = Pages::paginate(10);
         return view('pages.index', compact('pages'));
 
     }
