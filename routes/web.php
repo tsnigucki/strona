@@ -14,7 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('pages', 'PagesController');
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group([
+    'middleware' => 'roles',
+    'roles' => ['Admin', 'Moderator']
+], function() {
+
+    Route::resource('pages', 'PagesController');
+
+});
+
+    Auth::routes();
+
+    Route::get('/home', 'HomeController@index')->name('home');
+

@@ -22,6 +22,6 @@ class RolesTableSeeder extends Seeder
         $role = new \App\Roles();
         $role->name = 'User';
         $role->save();
- 
+
     }
 }
