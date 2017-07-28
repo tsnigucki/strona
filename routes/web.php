@@ -20,7 +20,10 @@ Route::group([
     'roles' => ['Admin', 'Moderator']
 ], function() {
 
-    Route::resource('pages', 'PagesController');
+    Route::get('pages', [
+        'uses' => 'PagesController@index',
+        'as' => 'pages.index'
+    ]);
 
 });
 
