@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
+    <a class="btn btn-primary" href="{{route('pages.create')}}">Dodaj stronę</a>
 
     <table class="table table-hover">
     <tr>

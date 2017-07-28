@@ -35,6 +35,11 @@ Route::group([
         'as' => 'pages.store'
     ]);
 
+    Route::get('pages/edit/{page}', [
+        'uses' => 'PagesController@edit',
+        'as' => 'pages.edit'
+    ]);
+
 });
 
     Auth::routes();
