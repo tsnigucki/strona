@@ -50,17 +50,6 @@ class PagesController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Pages $page
@@ -74,23 +63,25 @@ class PagesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  PagesRequest  $request
+     * @param  Pages $page
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PagesRequest $request, Pages $page)
     {
-        //
+        $page->update($request->all());
+        return redirect()->route('pages.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Pages $page
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Pages $page)
     {
-        //
+        $page->delete();
+        return redirect()->route('pages.index');
     }
 }

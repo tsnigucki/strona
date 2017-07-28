@@ -40,6 +40,16 @@ Route::group([
         'as' => 'pages.edit'
     ]);
 
+    Route::put('pages/{page}', [
+        'uses' => 'PagesController@update',
+        'as' => 'pages.update'
+    ]);
+
+    Route::delete('pages/{page}', [
+        'uses' => 'PagesController@destroy',
+        'as' => 'pages.delete'
+    ]);
+
 });
 
     Auth::routes();
